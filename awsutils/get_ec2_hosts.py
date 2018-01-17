@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import boto3
 import argparse
 
@@ -24,7 +25,13 @@ def print_inst_details(instance):
     else:
         public_ip = ""
 
-    print "{0}{1} {2}{3}".format(name.ljust(30), instance['State']['Name'], instance['PrivateIpAddress'].ljust(16), public_ip)
+    if 'PrivateIpAddress' in instance:
+        private_ip = instance['PrivateIpAddress']
+    else:
+        private_ip = ""
+
+
+    print "{0}{1} {2}{3}".format(name.ljust(30), instance['State']['Name'], private_ip.ljust(16), public_ip)
     # print instance
 
 
