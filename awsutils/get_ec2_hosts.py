@@ -31,7 +31,7 @@ def print_inst_details(instance):
         private_ip = ""
 
 
-    print "{0}{1} {2}{3}".format(name.ljust(30), instance['State']['Name'], private_ip.ljust(16), public_ip)
+    print("{0}{1} {2}{3}".format(name.ljust(30), instance['State']['Name'], private_ip.ljust(16), public_ip))
     # print instance
 
 
